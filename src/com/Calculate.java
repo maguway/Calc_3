@@ -2,6 +2,7 @@ package com;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,9 +66,11 @@ public class Calculate {
         Integer oper[] = new Integer[3];
 
         if (!arabian) {
+            // Если римские, то запускаем процедуру перевода из римских в арабские
             oper[0] = transform_roman_numeral(numbers[0]);
             oper[1] = transform_roman_numeral(numbers[1]);
         } else {
+            // Если арабские, то просто заполняем, конвертируя в Int
             oper[0] = Integer.parseInt(numbers[0]);
             oper[1] = Integer.parseInt(numbers[1]);
         }
@@ -112,5 +115,30 @@ public class Calculate {
                 break;
         }
         return res;
+    }
+
+
+    public static String toRoman (int number) {
+        TreeMap<Integer, String> map = new TreeMap<Integer, String>();
+        map.put(1000, "M");
+        map.put(900, "CM");
+        map.put(500, "D");
+        map.put(400, "CD");
+        map.put(100, "C");
+        map.put(90, "XC");
+        map.put(50, "L");
+        map.put(40, "XL");
+        map.put(10, "X");
+        map.put(9, "IX");
+        map.put(5, "V");
+        map.put(4, "IV");
+        map.put(1, "I");
+
+        int l =  map.floorKey(number);
+
+        if ( number == l ) {
+            return map.get(number);
+        }
+        return map.get(l) + toRoman(number-l);
     }
 }
