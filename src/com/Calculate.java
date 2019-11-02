@@ -117,7 +117,6 @@ public class Calculate {
         return res;
     }
 
-
     public static String toRoman (int number) {
         TreeMap<Integer, String> map = new TreeMap<Integer, String>();
         map.put(10, "X");
