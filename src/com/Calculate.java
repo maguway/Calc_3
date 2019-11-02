@@ -17,7 +17,7 @@ public class Calculate {
         // причем должны быть от 1 до 10. Все через RegExp
         Pattern p1 = Pattern.compile("^\\s*([1-9]|10)\\s*[*/+-]\\s*([1-9]|10)\\s*$");
         Matcher m1 = p1.matcher(expr);
-        Pattern p2 = Pattern.compile("^\\s*[ivx]{1,4}\\s*[*/+-]\\s*[ivx]{1,4}\\s*$");
+        Pattern p2 = Pattern.compile("^\\s*(i|ii|iii|iv|v|vi|vii|viii|ix|x)\\s*[*/+-]\\s*(i|ii|iii|iv|v|vi|vii|viii|ix|x)\\s*$");
         Matcher m2 = p2.matcher(expr);
 
         if (m1.find()) {
