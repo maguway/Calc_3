@@ -32,7 +32,7 @@ public class Main {
 
             // вывод результата на экран в зависимости от римского или арабского ввода
             if (!numeral) {
-                System.out.println(Calculate.toRoman(newInt));
+                System.out.println("Output: \n" + Calculate.toRoman(newInt));
             } else {
                 if (newDouble % 1 != 0) {   // определяем, есть ли дробная часть, если да, то печатаем ее
                     System.out.println("Output: \n" + newDouble);
